@@ -19,8 +19,8 @@ app.http('AlzaMailParse', {
         }).filter(link => link !== undefined);
         // map array to two objects for pdf and isdocs
         const docs = {
-            pdf: links.filter(link => link.includes("https://www.alza.cz/Apps/pdfdoc.asp")),
-            isdoc: links.filter(link => link.includes("ISDOCinvoicedownload"))
+            pdf: links.find(link => link.includes("https://www.alza.cz/Apps/pdfdoc.asp")),
+            isdoc: links.find(link => link.includes("ISDOCinvoicedownload"))
         };
         // application/json
         return {
