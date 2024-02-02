@@ -14,7 +14,7 @@ app.http('AlzaMailParse', {
             const href = link.match(/<a href="(.*?)".*>/)[1];
             // only return the href if contains "https://www.alza.cz/Apps/pdfdoc.asp" or "ISDOCinvoicedownload"
             if (href.includes("https://www.alza.cz/Apps/pdfdoc.asp") || href.includes("ISDOCinvoicedownload")){
-                return href;
+                return href.replace(/&amp;/g, "&");
             }            
         }).filter(link => link !== undefined);
         // map array to two objects for pdf and isdocs
