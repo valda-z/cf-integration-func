@@ -36,6 +36,7 @@ app.http('AlzaMailParse', {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                "loaded": (pdf),
                 "pdf": pdf ? await pdf.arrayBuffer().then(buffer => Buffer.from(buffer).toString('base64')) : null,
             })
         };
